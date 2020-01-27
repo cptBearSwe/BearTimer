@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">BearTimer</string>
+    <string name="txtPrepare">FÖRBERED!</string>
+    <string name="txtTimeLabel">LÄNGD PÅ SPELLISTA!</string>
+    <string name="btnRun">STARTA TIMER!</string>
+    <string name="btnSave">SPARA TID!</string>
+    <string name="edtTime">MM:SS</string>
+
+
+    <string name="textView">""</string>
+    <string name="textView2">""</string>
+</resources>
