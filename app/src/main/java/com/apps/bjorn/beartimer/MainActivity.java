@@ -5,11 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     Integer raknare = 0;
@@ -47,6 +52,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         String strMin;
         String strSec;
         String strMsg;
+        String strPass;
+        String strTime;
+        String strHrt;
+        String strRpm;
+        String strPos;
+        String msg;
 
         EditText edtPassname = findViewById(R.id.edtPassName);
         EditText edtTimes = findViewById(R.id.edtTime);
@@ -57,14 +68,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
         TextView txtTimes  = findViewById(R.id.txtTimes);
 
         raknare = raknare + 1;
+        strPass = edtPassname.getText().toString();
         tmp = edtTimes.getText().toString().indexOf(":");
         if (tmp != -1) {
+            strTime = edtTimes.getText().toString();
+            strHrt = edtHrt.getText().toString();
+            strRpm = edtRpm.getText().toString();
+            strPos = edtPos.getText().toString();
             strMin = edtTimes.getText().toString().substring(0,tmp);
             strSec = edtTimes.getText().toString().substring(tmp + 1);
             intTime = Integer.valueOf(strMin) * 60 + Integer.valueOf(strSec);
             GlobalParameters.getInstance().lstTimes.add(intTime);
             strMsg = raknare.toString() + ": " + edtTimes.getText().toString()+ "\n";
             txtTimes.setText(strMsg + txtTimes.getText());
+            msg = strPass + ";" + strTime + ";" + strHrt + ";" + strRpm + ";" + strPos;
+            writeToFile(msg);
             edtTimes.setText("");
             edtHrt.setText("");
             edtRpm.setText("");
@@ -73,5 +91,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     }
 
-
+    public void writeToFile(String msg){
+        try {
+            File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+            File file = new File(path + "/" + "bearTimer.txt");
+            file.createNewFile();
+            FileWriter filewriter = new FileWriter(file,true);
+            BufferedWriter out = new BufferedWriter(filewriter);
+            
+            out.write(msg);
+            out.newLine();
+            out.close();
+            filewriter.close();
+        } catch (Exception e){
+            android.util.Log.d("Failed to save file", e.toString());
+        }
+    }
 }

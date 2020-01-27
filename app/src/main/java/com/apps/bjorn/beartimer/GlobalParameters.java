@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 public class GlobalParameters {
     public ArrayList<Integer> lstTimes;
+    public ArrayList<String> lstPass;
 
     private GlobalParameters(){
         lstTimes = new ArrayList<Integer>();
+        lstPass = new ArrayList<String>();
     }
 
     private static GlobalParameters instance;
