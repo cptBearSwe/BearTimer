@@ -48,7 +48,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         String strSec;
         String strMsg;
 
+        EditText edtPassname = findViewById(R.id.edtPassName);
         EditText edtTimes = findViewById(R.id.edtTime);
+        EditText edtHrt = findViewById(R.id.edtHRT);
+        EditText edtRpm = findViewById(R.id.edtRPM);
+        EditText edtPos = findViewById(R.id.edtPos);
+
         TextView txtTimes  = findViewById(R.id.txtTimes);
 
         raknare = raknare + 1;
@@ -61,6 +66,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
             strMsg = raknare.toString() + ": " + edtTimes.getText().toString()+ "\n";
             txtTimes.setText(strMsg + txtTimes.getText());
             edtTimes.setText("");
+            edtHrt.setText("");
+            edtRpm.setText("");
+            edtPos.setText("");
         }
 
     }
