@@ -98,11 +98,11 @@
         android:layout_width="202dp"
         android:layout_height="68dp"
         android:layout_marginTop="44dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
         android:text="@string/btnSave"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edtRPM"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/edtPos"
         app:layout_constraintTop_toBottomOf="@+id/edtHRT" />
 
     <TextView
@@ -182,8 +182,7 @@
         android:layout_height="62dp"
         android:layout_marginStart="184dp"
         android:layout_marginLeft="184dp"
-        android:layout_marginTop="263dp"
-        android:layout_marginBottom="636dp"
+        android:layout_marginTop="12dp"
         android:background="@android:color/darker_gray"
         android:ems="10"
         android:hint="@string/edtRPM"
@@ -192,9 +191,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FF0000"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/edtTime"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtHRT" />
 
     <EditText
         android:id="@+id/edtPos"
