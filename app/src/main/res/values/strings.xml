@@ -2,10 +2,18 @@
     <string name="app_name">BearTimer</string>
     <string name="txtPrepare">FÖRBERED!</string>
     <string name="txtTimeLabel">LÄNGD PÅ SPELLISTA!</string>
+    <string name="txtPass">PASSNAMN</string>
+    <string name="txtTime">LÅTLÄNGD</string>
+    <string name="txtHRT">HRT %</string>
+    <string name="txtRPM">RPM</string>
+    <string name="txtPos">POSITION</string>
+
     <string name="btnRun">STARTA TIMER!</string>
     <string name="btnSave">SPARA TID!</string>
     <string name="edtTime">MM:SS</string>
-
+    <string name="edtHRT">NN</string>
+    <string name="edtRPM">NNN</string>
+    <string name="edtPos">1 / 2</string>
 
     <string name="textView">""</string>
     <string name="textView2">""</string>

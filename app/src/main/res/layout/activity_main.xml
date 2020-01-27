@@ -9,9 +9,52 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/txtPos"
+        android:layout_width="160dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/txtPos"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtTime"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/edtTime"
+        app:layout_constraintTop_toBottomOf="@+id/edtTime" />
+
+    <TextView
+        android:id="@+id/txtRPM"
+        android:layout_width="137dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="340dp"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/txtRPM"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/edtPassName"
+        app:layout_constraintTop_toBottomOf="@+id/edtPassName" />
+
+    <EditText
+        android:id="@+id/edtPassName"
+        android:layout_width="480dp"
+        android:layout_height="42dp"
+        android:background="@android:color/darker_gray"
+        android:ems="10"
+        android:inputType="time"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FF0000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtPass"
+        app:layout_constraintStart_toStartOf="@+id/txtPass"
+        app:layout_constraintTop_toBottomOf="@+id/txtPass" />
+
+    <TextView
         android:id="@+id/txtPrepare"
-        android:layout_width="380dp"
-        android:layout_height="48dp"
+        android:layout_width="485dp"
+        android:layout_height="46dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
@@ -29,46 +72,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/edtTime"
-        android:layout_width="160dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@android:color/darker_gray"
-        android:ems="10"
-        android:hint="@string/edtTime"
-        android:inputType="time"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#FF0000"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/btnSave"
-        app:layout_constraintHorizontal_bias="0.031"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPrepare" />
-
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="202dp"
-        android:layout_height="68dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="@string/btnSave"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPrepare" />
-
     <TextView
         android:id="@+id/txtTimeLabel"
-        android:layout_width="379dp"
-        android:layout_height="47dp"
+        android:layout_width="496dp"
+        android:layout_height="54dp"
         android:layout_marginStart="28dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="20dp"
         android:background="@android:color/holo_blue_dark"
@@ -79,13 +89,26 @@
         android:textStyle="bold"
         app:fontFamily="sans-serif-medium"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSave" />
 
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="202dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:text="@string/btnSave"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtHRT" />
+
     <TextView
         android:id="@+id/txtTimes"
-        android:layout_width="391dp"
-        android:layout_height="346dp"
+        android:layout_width="502dp"
+        android:layout_height="309dp"
         android:layout_marginStart="26dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
@@ -93,27 +116,143 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="22dp"
         android:background="@android:drawable/editbox_background"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/btnRun"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTimeLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTimeLabel"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnRun"
-        android:layout_width="385dp"
-        android:layout_height="58dp"
+        android:layout_width="505dp"
+        android:layout_height="63dp"
         android:layout_marginStart="23dp"
         android:layout_marginLeft="20dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="36dp"
         android:text="@string/btnRun"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edtTime"
+        android:layout_width="157dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/darker_gray"
+        android:ems="10"
+        android:hint="@string/edtTime"
+        android:inputType="time"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FF0000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtTime"
+        app:layout_constraintTop_toBottomOf="@+id/txtTime" />
+
+    <EditText
+        android:id="@+id/edtHRT"
+        android:layout_width="136dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/darker_gray"
+        android:ems="10"
+        android:hint="@string/edtHRT"
+        android:inputType="time"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FF0000"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtPos"
+        app:layout_constraintEnd_toStartOf="@+id/edtRPM"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toEndOf="@+id/edtTime"
+        app:layout_constraintTop_toBottomOf="@+id/txtHRT"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/edtRPM"
+        android:layout_width="136dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="184dp"
+        android:layout_marginLeft="184dp"
+        android:layout_marginTop="263dp"
+        android:layout_marginBottom="636dp"
+        android:background="@android:color/darker_gray"
+        android:ems="10"
+        android:hint="@string/edtRPM"
+        android:inputType="time"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FF0000"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edtTime"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtPos"
+        android:layout_width="159dp"
+        android:layout_height="63dp"
+        android:background="@android:color/darker_gray"
+        android:ems="10"
+        android:hint="@string/edtPos"
+        android:inputType="time"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FF0000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtPos"
+        app:layout_constraintStart_toStartOf="@+id/txtPos"
+        app:layout_constraintTop_toBottomOf="@+id/txtPos" />
+
+    <TextView
+        android:id="@+id/txtPass"
+        android:layout_width="483dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/txtPass"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtPrepare"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtPrepare"
+        app:layout_constraintTop_toBottomOf="@+id/txtPrepare" />
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="157dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/txtTime"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/edtPassName"
+        app:layout_constraintTop_toBottomOf="@+id/edtPassName" />
+
+    <TextView
+        android:id="@+id/txtHRT"
+        android:layout_width="139dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/txtHRT"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/txtRPM"
+        app:layout_constraintHorizontal_bias="0.363"
+        app:layout_constraintStart_toEndOf="@+id/txtTime"
+        app:layout_constraintTop_toBottomOf="@+id/edtPassName" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
