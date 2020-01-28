@@ -3,8 +3,16 @@ package com.apps.bjorn.beartimer;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Environment;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class DisplayTimer extends Activity {
@@ -18,11 +26,31 @@ public class DisplayTimer extends Activity {
 
         setContentView(R.layout.timer_display);
         Log.v("BM","Check array: " +  GlobalParameters.getInstance().lstTimes.size());
+        readData();
         showTimes(1);
 
     }
 
     CountDownTimer myTimer = null;
+
+    public void readData(){
+        String rader = null;
+        try {
+            File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+            FileReader reader = new FileReader(path + "/" + "myfile.txt");
+            BufferedReader bufferedreader = new BufferedReader(reader);
+            while ((rader = bufferedreader.readLine()) != null){
+                GlobalParameters.getInstance().lstPass.add(rader);
+            }
+            Toast.makeText(this,"AntaL rader: " + GlobalParameters.getInstance().lstPass.size(), Toast.LENGTH_LONG).show();
+        }
+        catch (FileNotFoundException e){
+            Toast.makeText(this, "FileNotFoundException",Toast.LENGTH_LONG).show();
+        }
+        catch(IOException e){
+            Toast.makeText(this, "IOException",Toast.LENGTH_LONG).show();
+        }
+    }
 
     public void showTimes(final Integer timer){
         myTimer = new CountDownTimer(timer,1000){
