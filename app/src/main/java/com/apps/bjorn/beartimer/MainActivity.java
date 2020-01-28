@@ -12,9 +12,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     Integer raknare = 0;
@@ -94,11 +103,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void writeToFile(String msg){
         try {
             File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-            File file = new File(path + "/" + "bearTimer.txt");
+            File file = new File(path, "/" + "myfile.txt");
             file.createNewFile();
-            FileWriter filewriter = new FileWriter(file,true);
+            FileWriter filewriter = new FileWriter(file, true);
             BufferedWriter out = new BufferedWriter(filewriter);
-            
+
             out.write(msg);
             out.newLine();
             out.close();
