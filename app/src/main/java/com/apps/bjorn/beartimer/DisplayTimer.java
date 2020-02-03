@@ -21,6 +21,7 @@ public class DisplayTimer extends Activity {
     String txt;
     String strPass;
     String strTime;
+    String strSec;
     String strHrt;
     String strRpm;
     String strPos;
@@ -59,8 +60,39 @@ public class DisplayTimer extends Activity {
     }
 
     public void extractData(){
+        Integer a;
+        Boolean bolUse = false;
+
+        if (GlobalParameters.getInstance().lstTimes.size() < 1){
+            bolUse = true;
+        }
         for (String each : GlobalParameters.getInstance().lstPass){
-            Log.v("BM", each);
+            a = each.indexOf(";");
+            strPass = each.substring(0,a);
+            txt = each.substring(a +1, each.length());
+
+            a = txt.indexOf(";");
+            strTime = txt.substring(0,a);
+            txt = txt.substring(a +1, txt.length());
+
+            a = txt.indexOf(";");
+            strSec = txt.substring(0,a);
+            txt = txt.substring(a +1, txt.length());
+            if (bolUse = true){
+                GlobalParameters.getInstance().lstTimes.add(Integer.valueOf(strSec));
+            }
+
+            a = txt.indexOf(";");
+            strHrt = txt.substring(0,a);
+            txt = txt.substring(a +1, txt.length());
+
+            a = txt.indexOf(";");
+            strRpm = txt.substring(0,a);
+            txt = txt.substring(a +1, txt.length());
+
+            strPos = txt;
+
+            Log.v("BM",strSec);
         }
     }
     
@@ -73,7 +105,6 @@ public class DisplayTimer extends Activity {
                         TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
                         TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
                                 TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
-                Log.v("BM",timer.toString() + ", " + txt);
             }
             @Override
             public void onFinish() {

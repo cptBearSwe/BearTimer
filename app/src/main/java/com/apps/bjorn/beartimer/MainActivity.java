@@ -90,7 +90,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             GlobalParameters.getInstance().lstTimes.add(intTime);
             strMsg = raknare.toString() + ": " + edtTimes.getText().toString()+ "\n";
             txtTimes.setText(strMsg + txtTimes.getText());
-            msg = strPass + ";" + strTime + ";" + strHrt + ";" + strRpm + ";" + strPos;
+            msg = strPass + ";" + strTime + ";" + intTime.toString() + ";" + strHrt + ";" + strRpm + ";" + strPos;
             writeToFile(msg);
             edtTimes.setText("");
             edtHrt.setText("");
