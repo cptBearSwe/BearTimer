@@ -19,6 +19,11 @@ public class DisplayTimer extends Activity {
 
     Integer tmp = -1;
     String txt;
+    String strPass;
+    String strTime;
+    String strHrt;
+    String strRpm;
+    String strPos;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +32,7 @@ public class DisplayTimer extends Activity {
         setContentView(R.layout.timer_display);
         Log.v("BM","Check array: " +  GlobalParameters.getInstance().lstTimes.size());
         readData();
+        extractData();
         showTimes(1);
 
     }
@@ -52,6 +58,12 @@ public class DisplayTimer extends Activity {
         }
     }
 
+    public void extractData(){
+        for (String each : GlobalParameters.getInstance().lstPass){
+            Log.v("BM", each);
+        }
+    }
+    
     public void showTimes(final Integer timer){
         myTimer = new CountDownTimer(timer,1000){
             TextView textView  = findViewById(R.id.textView);
