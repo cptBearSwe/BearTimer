@@ -97,10 +97,12 @@ public class DisplayTimer extends Activity {
     }
     
     public void showTimes(final Integer timer){
+        TextView textView3  = findViewById(R.id.textView3);
+        textView3.setText(strPass);
         myTimer = new CountDownTimer(timer,1000){
             TextView textView  = findViewById(R.id.textView);
             @Override
-            public void onTick(long millisUntilFinished) {
+           public void onTick(long millisUntilFinished) {
                 textView.setText(""+String.format("%d m %d s",
                         TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
                         TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
