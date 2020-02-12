@@ -103,7 +103,7 @@ public class DisplayTimer extends Activity {
             TextView textView  = findViewById(R.id.textView);
             @Override
            public void onTick(long millisUntilFinished) {
-                textView.setText(""+String.format("%d m %d s",
+                textView.setText(""+String.format("%02d:%02d",
                         TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
                         TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
                                 TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
