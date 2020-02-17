@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtMainTitle"
+        android:layout_width="360dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="40dp"
+        android:background="@android:color/holo_blue_dark"
+        android:text="@string/txtMainTitle"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnMainCreate"
+        android:layout_width="360dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="195dp"
+        android:layout_marginLeft="40dp"
+        android:text="@string/btnMainCreate" />
+
+    <Button
+        android:id="@+id/btnMainOpen"
+        android:layout_width="360dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="295dp"
+        android:layout_marginLeft="40dp"
+        android:text="@string/btnMainOpen" />
+
+    <Button
+        android:id="@+id/btnMainStart"
+        android:layout_width="360dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="395dp"
+        android:layout_marginLeft="40dp"
+        android:text="@string/btnMainStart" />
+
+    <Button
+        android:id="@+id/btnMainEnd"
+        android:layout_width="360dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="600dp"
+        android:text="@string/btnMainEnd" />
+
+
+</RelativeLayout>

@@ -17,4 +17,11 @@
 
     <string name="textView">""</string>
     <string name="textView2">""</string>
+
+    <string name="txtMainTitle">"PASS TIMER"</string>
+    <string name="btnMainCreate">"Skapa och Spara!"</string>
+    <string name="btnMainOpen">"Läs in passdata!"</string>
+    <string name="btnMainStart">"STARTA TIMER!"</string>
+    <string name="btnMainEnd">"Avsluta!"</string>
+
 </resources>
