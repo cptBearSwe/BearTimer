@@ -19,12 +19,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity android:name=".GlobalParameters">
         </activity>
+        <activity android:name=".Track">
+        </activity>
         <activity android:name=".DisplayTimer"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".SelectFile"
             android:screenOrientation="portrait">
         </activity>
     </application>

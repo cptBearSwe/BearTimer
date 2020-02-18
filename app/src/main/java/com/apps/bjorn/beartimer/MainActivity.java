@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import android.util.Log;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -24,9 +24,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.util.ArrayList;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     Integer raknare = 0;
+    String strPass;
+    ArrayList<Track> CykelPass = new ArrayList<Track>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +49,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         switch (v.getId()){
             case R.id.btnSave:
                 saveTimes();
+                showCykelPass();
                 break;
             case R.id.btnRun:
-                Intent a = new Intent (this, DisplayTimer.class);
-                startActivity(a);
+                finish();
+                //Intent a = new Intent (this, DisplayTimer.class);
+                //startActivity(a);
                 break;
         }
     }
@@ -61,7 +66,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         String strMin;
         String strSec;
         String strMsg;
-        String strPass;
         String strTime;
         String strHrt;
         String strRpm;
@@ -76,6 +80,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         TextView txtTimes  = findViewById(R.id.txtTimes);
 
+
         raknare = raknare + 1;
         strPass = edtPassname.getText().toString();
         tmp = edtTimes.getText().toString().indexOf(":");
@@ -87,6 +92,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
             strMin = edtTimes.getText().toString().substring(0,tmp);
             strSec = edtTimes.getText().toString().substring(tmp + 1);
             intTime = Integer.valueOf(strMin) * 60 + Integer.valueOf(strSec);
+
+            Track obj = new Track(raknare, strPass, strTime, strHrt,strRpm, strPos);
+            CykelPass.add(obj);
+            GlobalParameters.getInstance().strPassName = "KalleKula.txt";
+
             GlobalParameters.getInstance().lstTimes.add(intTime);
             strMsg = raknare.toString() + ": " + edtTimes.getText().toString()+ "\n";
             txtTimes.setText(strMsg + txtTimes.getText());
@@ -103,7 +113,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void writeToFile(String msg){
         try {
             File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-            File file = new File(path, "/" + "myfile.txt");
+            File file = new File(path, "/" + strPass + ".txt");
             file.createNewFile();
             FileWriter filewriter = new FileWriter(file, true);
             BufferedWriter out = new BufferedWriter(filewriter);
@@ -114,6 +124,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
             filewriter.close();
         } catch (Exception e){
             android.util.Log.d("Failed to save file", e.toString());
+        }
+    }
+
+    public void showCykelPass(){
+        for(Track row : CykelPass){
+            Log.v("BM","Check track: Nr: " + row.no + "Pass: " + row.passname + "Times: " + row.length + " - " + row.sec + "Data: " + row.hrt + ", " + row.rpm + ", " + row.pos);
         }
     }
 }

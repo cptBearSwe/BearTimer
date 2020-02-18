@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/txtReadTitle"
+        android:layout_width="485dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:background="@android:color/holo_blue_dark"
+        android:text="@string/txtReadTitle"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:fontFamily="sans-serif-medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtReadInfo"
+        android:layout_width="483dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/txtReadInfo"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtReadTitle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtReadTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txtReadTitle" />
+
+    <EditText
+        android:id="@+id/edtReadFile"
+        android:layout_width="480dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/darker_gray"
+        android:ems="10"
+        android:inputType="time"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FF0000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtReadInfo"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="@+id/txtReadInfo"
+        app:layout_constraintTop_toBottomOf="@+id/txtReadInfo" />
+
+    <Button
+        android:id="@+id/btnReadSelect"
+        android:layout_width="202dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="199dp"
+        android:layout_marginLeft="199dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginRight="140dp"
+        android:text="@string/btnReadSelect"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtReadInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtReadFile" />
+
+    <TextView
+        android:id="@+id/txtReadResult"
+        android:layout_width="483dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="100dp"
+        android:text="@string/txtReadResult"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/btnReadSelect"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtReadInfo"
+        app:layout_constraintTop_toBottomOf="@+id/btnReadSelect" />
+
+    <Button
+        android:id="@+id/btnReadEnd"
+        android:layout_width="202dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="140dp"
+        android:text="@string/btnReadEnd"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtReadInfo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnReadSelect"
+        app:layout_constraintTop_toBottomOf="@+id/txtReadResult" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,7 +34,7 @@ public class MainMenu extends Activity implements View.OnClickListener {
                 startActivity(a0);
                 break;
             case R.id.btnMainOpen:
-                Intent a1 = new Intent (this, DisplayTimer.class);
+                Intent a1 = new Intent (this, SelectFile.class);
                 startActivity(a1);
                 break;
             case R.id.btnMainStart:
