@@ -34,6 +34,7 @@ public class DisplayTimer extends Activity {
 
         setContentView(R.layout.timer_display);
         Log.v("BM","Check array: " +  GlobalParameters.getInstance().lstTimes.size());
+        Log.v("BM",GlobalParameters.getInstance().strPassName);
         //readData();
         //extractData();
         //showTimes(4000);
