@@ -1,6 +1,7 @@
 package com.apps.bjorn.beartimer;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
@@ -34,6 +35,13 @@ public class DisplayTimer extends Activity {
 
         setContentView(R.layout.timer_display);
         Log.v("BM","Check array: " +  GlobalParameters.getInstance().lstTimes.size());
+        Log.v("BM","Passnamn: " +  GlobalParameters.getInstance().strPassName);
+        if(GlobalParameters.getInstance().strPassName == ""){
+            strPass = "myfile.txt";
+        }
+        else{
+            strPass = GlobalParameters.getInstance().strPassName;
+        }
         Log.v("BM",GlobalParameters.getInstance().strPassName);
         //readData();
         //extractData();
@@ -49,7 +57,7 @@ public class DisplayTimer extends Activity {
         String rader = null;
         try {
             File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-            FileReader reader = new FileReader(path + "/" + "myfile.txt");
+            FileReader reader = new FileReader(path + "/" + strPass + ".txt");
             BufferedReader bufferedreader = new BufferedReader(reader);
             while ((rader = bufferedreader.readLine()) != null){
                 GlobalParameters.getInstance().lstPass.add(rader);
@@ -151,9 +159,82 @@ public class DisplayTimer extends Activity {
             }
             @Override
             public void onFinish() {
-                TextView textView2  = findViewById(R.id.textView2);
+                TextView textView4  = findViewById(R.id.textView4);
+                TextView textView5  = findViewById(R.id.textView5);
+                TextView textView6  = findViewById(R.id.textView6);
+                TextView textView10  = findViewById(R.id.textView10);
+                TextView textView11  = findViewById(R.id.textView11);
+                TextView textView12  = findViewById(R.id.textView12);
+
                 tmp = tmp + 1;
+                // Current track
+                TextView textView2  = findViewById(R.id.textView2);
                 textView2.setText("(" + (tmp + 1) + "/" + CykelPass.size() + ")");
+                textView4.setText(CykelPass.get(tmp).pos);
+                textView5.setText(CykelPass.get(tmp).hrt);
+                textView6.setText(CykelPass.get(tmp).rpm);
+
+                // Set color due to HRT
+                int fntColor = Integer.parseInt(CykelPass.get(tmp).hrt);
+                if(fntColor >= 0 && fntColor <= 59){
+                    textView4.setTextColor(Color.WHITE);
+                    textView5.setTextColor(Color.WHITE);
+                    textView6.setTextColor(Color.WHITE);
+                }
+                else if (fntColor >= 60 && fntColor <=69 ){
+                    textView4.setTextColor(Color.BLUE);
+                    textView5.setTextColor(Color.BLUE);
+                    textView6.setTextColor(Color.BLUE);
+                }
+                else if (fntColor >= 70 && fntColor <= 79 ){
+                    textView4.setTextColor(Color.GREEN);
+                    textView5.setTextColor(Color.GREEN);
+                    textView6.setTextColor(Color.GREEN);
+                }
+                else if (fntColor >= 80 && fntColor <= 89 ){
+                    textView4.setTextColor(Color.YELLOW);
+                    textView5.setTextColor(Color.YELLOW);
+                    textView6.setTextColor(Color.YELLOW);
+                }
+                else if (fntColor >= 90 && fntColor < 100 ){
+                    textView4.setTextColor(Color.RED);
+                    textView5.setTextColor(Color.RED);
+                    textView6.setTextColor(Color.RED);
+                }
+
+                // Next track
+                if(tmp <= CykelPass.size()){
+                    textView10.setText(CykelPass.get(tmp + 1).pos);
+                    textView11.setText(CykelPass.get(tmp + 1).hrt);
+                    textView12.setText(CykelPass.get(tmp + 1).rpm);
+                    fntColor = Integer.parseInt(CykelPass.get(tmp +  1).hrt);
+                    if(fntColor >= 0 && fntColor <= 59){
+                        textView10.setTextColor(Color.WHITE);
+                        textView11.setTextColor(Color.WHITE);
+                        textView12.setTextColor(Color.WHITE);
+                    }
+                    else if (fntColor >= 60 && fntColor <= 69 ){
+                        textView10.setTextColor(Color.BLUE);
+                        textView11.setTextColor(Color.BLUE);
+                        textView12.setTextColor(Color.BLUE);
+                    }
+                    else if (fntColor >= 70 && fntColor <= 79 ){
+                        textView10.setTextColor(Color.GREEN);
+                        textView11.setTextColor(Color.GREEN);
+                        textView12.setTextColor(Color.GREEN);
+                    }
+                    else if (fntColor >= 80 && fntColor <= 89 ){
+                        textView10.setTextColor(Color.YELLOW);
+                        textView11.setTextColor(Color.YELLOW);
+                        textView12.setTextColor(Color.YELLOW);
+                    }
+                    else if (fntColor >= 90 && fntColor <= 100 ){
+                        textView10.setTextColor(Color.RED);
+                        textView11.setTextColor(Color.RED);
+                        textView12.setTextColor(Color.RED);
+                    }
+                }
+
                 Log.v("BM",tmp.toString());
                 if (tmp < CykelPass.size()){
                     if (tmp == 0){
@@ -176,7 +257,7 @@ public class DisplayTimer extends Activity {
 
         try {
             File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-            FileReader reader = new FileReader(path + "/" + "myfile.txt");
+            FileReader reader = new FileReader(path + "/" + strPass + ".txt");
             BufferedReader bufferedreader = new BufferedReader(reader);
             while ((rader = bufferedreader.readLine()) != null){
                 raknare = raknare + 1;

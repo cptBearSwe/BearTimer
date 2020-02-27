@@ -95,7 +95,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             Track obj = new Track(raknare, strPass, strTime, strHrt,strRpm, strPos);
             CykelPass.add(obj);
-            GlobalParameters.getInstance().strPassName = "KalleKula.txt";
+            GlobalParameters.getInstance().strPassName = strPass;
 
             GlobalParameters.getInstance().lstTimes.add(intTime);
             strMsg = raknare.toString() + ": " + edtTimes.getText().toString()+ "\n";

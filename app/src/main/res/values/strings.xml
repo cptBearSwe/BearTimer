@@ -25,11 +25,21 @@
     <string name="btnMainEnd">"Avsluta!"</string>
 
     <string name="txtReadTitle">"LÄS IN PASSDATA"</string>
-    <string name="txtReadInfo">"Ange filnamn (YYMMDDPPNNN.txt): "</string>
+    <string name="txtReadInfo">"Ange passnamn (YYMMDDPPNNN): "</string>
     <string name="edtReadFile">""</string>
     <string name="btnReadSelect">"OK!"</string>
     <string name="txtReadResult">""</string>
     <string name="btnReadEnd">"TILLBAKA!"</string>
+
+    <string name="textView7">"POS"</string>
+    <string name="textView8">"HRT"</string>
+    <string name="textView9">"RPM"</string>
+    <string name="textView10">""</string>
+    <string name="textView11">""</string>
+    <string name="textView12">""</string>
+    <string name="textView13">"POS"</string>
+    <string name="textView14">"HRT"</string>
+    <string name="textView15">"RPM"</string>
 
 
 
